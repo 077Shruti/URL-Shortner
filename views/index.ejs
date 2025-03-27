@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>URL Shortner</h1>
+        <br>
+        <br>
+        <form action="/form" method="POST">
+            <label for="longUrl">Enter your Long URL</label>
+           <br>
+           <br>
+            <input type="longUrl" name="longUrl" placeholder="Enter the URL" required>
+            <br>
+            <br>
+            <button type="submit">SHORTEN</button>
+        </form>
+        <% if(shortUrl) { %>
+            <p> Short URL:- <a href="<%=shortUrl %>" target="_blank" />
+                <%= shortUrl %>
+            </p> <% } %>
+    </div>
+    
+</body>
+</html>
