@@ -3,15 +3,17 @@ import shortid from 'shortid';
 export const shortUrl=async(req,res)=>{
     const longUrl=req.body.longUrl;
     const shortCode=shortid.generate();
-    const shortUrl=`http://localhost:3000/${shortCode}`;
+    const baseUrl = `${req.protocol}://${req.get('host')}`;
+    const shortUrl = `${baseUrl}/${shortCode}`;
+
 
     //save to data base
     const newurl=new Url({shortCode,longUrl});
     await newurl.save();
     console.log("data is saved");
     
-   // res.render('index.ejs',{shortUrl});
-    res.redirect(`/?shortUrl=${shortUrl}`);
+   res.render('index.ejs',{shortUrl});
+    // res.redirect(`/?shortUrl=${shortUrl}`);
 }
 
 
